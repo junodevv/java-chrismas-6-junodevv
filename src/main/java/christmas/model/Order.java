@@ -7,15 +7,20 @@ public class Order {
     private String menu;
     private int count;
 
-    public List<Order> check(String menu) {
+    public Order(String menu, int count) {
+        this.menu = menu;
+        this.count = count;
+    }
+
+    public List<Order> check(String totalOrder) {
         List<Order> orders = new ArrayList<>();
-        String[] menuAndCount = menu.split(",");
-        for (String orderText : menuAndCount) {
-            Order newOrder = new Order();
-            newOrder.menu = orderText.substring(0, orderText.length() - 2);
-            newOrder.count = Integer.parseInt(
-                    orderText.substring(orderText.length() - 1)
+        String[] eachOrder = totalOrder.split(",");
+        for (String menuAndCount : eachOrder) {
+            String menu = menuAndCount.substring(0, menuAndCount.length() - 2);
+            int count = Integer.parseInt(
+                    menuAndCount.substring(menuAndCount.length() - 1)
             );
+            Order newOrder = new Order(menu, count);
             orders.add(newOrder);
         }
         return orders;
