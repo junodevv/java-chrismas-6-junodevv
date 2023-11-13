@@ -26,7 +26,7 @@ public class InputView {
     }
 
     public String readMenu() {
-        String Menu = readLine();
-        return Menu;
+        String totalOrder = readLine();
+        return totalOrder;
     }
 }
