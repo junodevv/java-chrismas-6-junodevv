@@ -1,8 +1,8 @@
 # 구현 기능 목록
 핵심기능 : 주문과 이벤트에 따른 예상 금액 연산
-- [ ] 12월 중 예약 받기 - InputView
+- [x] 12월 중 예약 받기 - InputView
   - [x] 식당 예상 방문 날짜 입력 받기 - InputView # readDate
-  - [ ] 주문 받기(메뉴와 개수) - InputView # orderMenu
+  - [x] 주문 받기(메뉴와 개수) - InputView # orderMenu
 
 - [ ] 주문과 이벤트에 따른 예상 금액 연산 - Calculator
   - [ ] `할인전 총 주문 금액` 연산  
