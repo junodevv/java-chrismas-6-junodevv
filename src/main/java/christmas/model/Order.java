@@ -7,6 +7,9 @@ public class Order {
     private String menu;
     private int count;
 
+    public Order() {
+    }
+
     public Order(String menu, int count) {
         this.menu = menu;
         this.count = count;
