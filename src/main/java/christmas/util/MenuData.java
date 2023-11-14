@@ -1,6 +1,6 @@
 package christmas.util;
 
-public enum Menu {
+public enum MenuData {
     YANGSONG_SOUP("appetizer", "양송이수프", 6000),
     TAPAS("appetizer", "타바스", 5500),
     CAESAR_SALAD("appetizer", "시저샐러드", 8000),
@@ -21,7 +21,7 @@ public enum Menu {
     private String name;
     private int price;
 
-    Menu(String type, String name, int price) {
+    MenuData(String type, String name, int price) {
         this.type = type;
         this.name = name;
         this.price = price;
