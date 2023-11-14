@@ -14,4 +14,12 @@ public class Menu {
         }
         return priceData;
     }
+
+    public HashMap<String, String> makeTypeData() {
+        HashMap<String, String> typeData = new HashMap<>();
+        for (MenuData menuData : MenuData.values()) {
+            typeData.put(menuData.getName(), menuData.getType());
+        }
+        return typeData;
+    }
 }
