@@ -10,6 +10,7 @@ public class Event {
     private static final List<Integer> WEEKEND = new ArrayList<>(
             Arrays.asList(1, 2, 8, 9, 15, 16, 22, 23, 29, 30)
     );
+    private static final int WEEK_DISCOUNT = 2023;
 
     public int christmasDDay(int date) {
         if (date <= CHRISTMAS_DAY) {
@@ -18,8 +19,11 @@ public class Event {
         return 0;
     }
 
-    public int weekday(int date) {
+    public int weekday(int dessertCount) {
+        return dessertCount * WEEK_DISCOUNT;
+    }
 
-        return 0;
+    public int weekend(int mainCount) {
+        return mainCount * WEEK_DISCOUNT;
     }
 }
