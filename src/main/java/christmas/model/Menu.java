@@ -8,7 +8,7 @@ public class Menu {
     private HashMap<String, String> typeData;
 
     public HashMap<String, Integer> makePriceData() {
-        HashMap<String, Integer> priceData = new HashMap<>();
+        priceData = new HashMap<>();
         for (MenuData menuData : MenuData.values()) {
             priceData.put(menuData.getName(), menuData.getPrice());
         }
@@ -16,7 +16,7 @@ public class Menu {
     }
 
     public HashMap<String, String> makeTypeData() {
-        HashMap<String, String> typeData = new HashMap<>();
+        typeData = new HashMap<>();
         for (MenuData menuData : MenuData.values()) {
             typeData.put(menuData.getName(), menuData.getType());
         }
