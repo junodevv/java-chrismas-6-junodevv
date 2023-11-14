@@ -1,6 +1,7 @@
 package christmas.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Order {
@@ -29,4 +30,13 @@ public class Order {
         return orders;
     }
 
+    public int findDessert(List<Order> orders, HashMap<String, String> typeData) {
+        int dessertCount = 0;
+        for (Order order : orders) {
+            if (typeData.get(order.menu)=="dessert") {
+                dessertCount = dessertCount + order.count;
+            }
+        }
+        return dessertCount;
+    }
 }
