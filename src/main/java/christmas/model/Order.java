@@ -39,4 +39,14 @@ public class Order {
         }
         return dessertCount;
     }
+
+    public int findMain(List<Order> orders, HashMap<String, String> typeData) {
+        int mainCount = 0;
+        for (Order order : orders) {
+            if (typeData.get(order.menu)=="main") {
+                mainCount = mainCount + order.count;
+            }
+        }
+        return mainCount;
+    }
 }
