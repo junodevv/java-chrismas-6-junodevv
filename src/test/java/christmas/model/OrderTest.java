@@ -43,4 +43,19 @@ class OrderTest {
 
         assertThat(actual).isEqualTo(expected);
     }
+
+    @DisplayName("주문중에서 메인메뉴의 갯수를 찾는 기능 테스트")
+    @Test
+    void findMain_테스트() {
+        String menuExample = "티본스테이크-1,바비큐립-1,초코케이크-2,아이스크림-1";
+        Order order = new Order();
+        Menu menu = new Menu();
+
+        List<Order> orders = order.check(menuExample);
+        HashMap<String, String> typeData = menu.makeTypeData();
+        int actual = order.findMain(orders, typeData);
+        int expected = 2;
+
+        assertThat(actual).isEqualTo(expected);
+    }
 }
