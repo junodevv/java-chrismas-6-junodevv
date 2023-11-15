@@ -60,6 +60,16 @@ public class Order {
         return totalAmount;
     }
 
+    public boolean checkMenu(List<Order> orders, HashMap<String, String> typeData) {
+        boolean checkMenu = false;
+        for (Order order : orders) {
+            if (!(typeData.get(order.menu).equals("drink"))) {
+                checkMenu = true;
+            }
+        }
+        return checkMenu;
+    }
+
     @Override
     public String toString() {
         return menu + " " + count + "개";
