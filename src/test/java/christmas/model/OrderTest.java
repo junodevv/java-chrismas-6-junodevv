@@ -76,7 +76,7 @@ class OrderTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @DisplayName("총 주문 금액을 구하는 기능 테스트")
+    @DisplayName("음료만 주문했는지 확인하는 기능 테스트")
     @ParameterizedTest
     @CsvSource(value = {"'티본스테이크-1,제로콜라-2',true", "'제로콜라-2,레드와인-1',false"})
     void checkMenu(String value, boolean expected) {
