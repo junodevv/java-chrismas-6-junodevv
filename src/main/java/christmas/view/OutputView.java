@@ -15,6 +15,7 @@ public class OutputView {
     private static final String DOES_NOT_EXIST = "없음";
     private static final String BENEFIT_DETAILS = "<혜택내역>";
     private static final int CHAMPAGNE_PRICE = 25000;
+    private static final String TOTAL_BENEFIT = "<총혜택 금액>";
 
     public void preview(int date) {
         System.out.printf(PREVIEW, date);
@@ -88,7 +89,9 @@ public class OutputView {
         }
     }
 
-    public void totalBenefit() {
-
+    public void totalBenefit(int totalBenefit) {
+        System.out.println(TOTAL_BENEFIT);
+        System.out.printf("-%s원\n", decimalFormat.format(totalBenefit));
     }
+
 }
