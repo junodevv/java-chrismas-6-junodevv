@@ -15,6 +15,7 @@ public class Event {
             Arrays.asList(3, 10, 17, 24, 25, 31)
     );
     private static final int STAR_DAY_DISCOUNT = 1000;
+    private static final int PRESENT_CONDITION_AMOUNT = 120000;
 
     public int christmasDDay(int date) {
         if (date <= CHRISTMAS_DAY) {
@@ -31,8 +32,14 @@ public class Event {
         return mainCount * WEEK_DISCOUNT;
     }
 
-    public int starday() {
+    public int starDay() {
         return STAR_DAY_DISCOUNT;
     }
 
+    public boolean present(int totalAmount) {
+        if (totalAmount >= PRESENT_CONDITION_AMOUNT) {
+            return true;
+        }
+        return false;
+    }
 }
