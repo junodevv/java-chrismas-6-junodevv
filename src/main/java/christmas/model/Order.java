@@ -1,5 +1,6 @@
 package christmas.model;
 
+import christmas.util.MenuData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +30,19 @@ public class Order {
         }
         return orders;
     }
+
+    private void validateMenu(String menu) {
+        if (MenuData.valueOf(menu)==null) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
+    }
+
+    private void validateCount(int count) {
+        if (count==0) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
+    }
+
 
     public int findDessert(List<Order> orders, HashMap<String, String> typeData) {
         int dessertCount = 0;
