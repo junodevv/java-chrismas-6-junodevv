@@ -23,8 +23,8 @@ public class Event {
     private static final int CHAMPAGNE_PRICE = 25000;
     private static final int DEFAULT = 0;
 
-    public boolean checkCondition(int totalAmount, boolean checkMenu) {
-        if (totalAmount > EVENT_AMOUNT_CONDITION && checkMenu) {
+    public boolean checkCondition(int totalAmount) {
+        if (totalAmount > EVENT_AMOUNT_CONDITION) {
             return true;
         }
         return false;
@@ -65,18 +65,20 @@ public class Event {
         return false;
     }
 
-    public int totalBenefit(int date, int dessertCount, int mainCount, int totalAmount) {
+    public int totalBenefit(boolean eventCondition, int date, int dessertCount, int mainCount, int totalAmount) {
         int totalBenefit = DEFAULT;
-        totalBenefit = totalBenefit + christmasDDay(date) + weekday(dessertCount, date) +
-                weekend(mainCount, date) + starDay(date);
-        if (present(totalAmount)) {
-            totalBenefit += CHAMPAGNE_PRICE;
+        if (eventCondition) {
+            totalBenefit = totalBenefit + christmasDDay(date) + weekday(dessertCount, date) +
+                    weekend(mainCount, date) + starDay(date);
+            if (present(totalAmount)) {
+                totalBenefit += CHAMPAGNE_PRICE;
+            }
         }
         return totalBenefit;
     }
 
     public int finalPayment(int totalAmount, int totalBenefit) {
-        return totalAmount - totalBenefit;
+        return totalAmount - totalBenefit + CHAMPAGNE_PRICE;
     }
 
     public String checkBadge(int totalBenefit) {
@@ -89,6 +91,6 @@ public class Event {
         if (totalBenefit >= 5000) {
             return "별";
         }
-        return null;
+        return "없음";
     }
 }
