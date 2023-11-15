@@ -82,8 +82,9 @@ class EventTest {
         int dessertCount = 2;
         int mainCount = 1;
         int totalAmount = 120000;
+        boolean eventCondition = true;
 
-        int actual = event.totalBenefit(date, dessertCount, mainCount, totalAmount);
+        int actual = event.totalBenefit(eventCondition, date, dessertCount, mainCount, totalAmount);
         int expected = 1200 + 4046 + 1000 + 25000;
 
         assertThat(actual).isEqualTo(expected);

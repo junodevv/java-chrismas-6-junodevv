@@ -90,14 +90,26 @@ public class Order {
         return totalAmount;
     }
 
-    public boolean checkMenu(List<Order> orders, HashMap<String, String> typeData) {
+    public void checkMenu(List<Order> orders, HashMap<String, String> typeData) {
         boolean checkMenu = false;
         for (Order order : orders) {
             if (!(typeData.get(order.menu).equals("drink"))) {
                 checkMenu = true;
             }
         }
-        return checkMenu;
+        if (!checkMenu) {
+            throw new IllegalArgumentException("[ERROR] 음료만 주문시 주문불가");
+        }
+    }
+
+    public void maxCount(List<Order> orders) {
+        int orderCount = 0;
+        for (Order order : orders) {
+            orderCount += order.count;
+        }
+        if (orderCount > 20) {
+            throw new IllegalArgumentException("[ERROR] 메뉴는 한번에 20개 까지만 주문 가능");
+        }
     }
 
     @Override
