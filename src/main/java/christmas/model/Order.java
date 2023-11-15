@@ -31,6 +31,7 @@ public class Order {
             );
             validateMenuAndCount(menu, count);
             Order newOrder = new Order(menu, count);
+            validateDuplication(newOrder, orders);
             orders.add(newOrder);
         }
         return orders;
@@ -48,6 +49,14 @@ public class Order {
         Matcher matcher = regex.matcher(menuAndCount);
         if (!(matcher.matches())) {
             throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+        }
+    }
+
+    private void validateDuplication(Order newOrder, List<Order> orders) {
+        for (Order order : orders) {
+            if (order.menu.equals(newOrder.menu)) {
+                throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+            }
         }
     }
 
