@@ -11,6 +11,10 @@ public class Event {
             Arrays.asList(1, 2, 8, 9, 15, 16, 22, 23, 29, 30)
     );
     private static final int WEEK_DISCOUNT = 2023;
+    private static final List<Integer> STAR_DAY = new ArrayList<>(
+            Arrays.asList(3, 10, 17, 24, 25, 31)
+    );
+    private static final int STAR_DAY_DISCOUNT = 1000;
 
     public int christmasDDay(int date) {
         if (date <= CHRISTMAS_DAY) {
@@ -26,4 +30,9 @@ public class Event {
     public int weekend(int mainCount) {
         return mainCount * WEEK_DISCOUNT;
     }
+
+    public int starday() {
+        return STAR_DAY_DISCOUNT;
+    }
+
 }
