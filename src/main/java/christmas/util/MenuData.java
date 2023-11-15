@@ -2,7 +2,7 @@ package christmas.util;
 
 public enum MenuData {
     YANGSONG_SOUP("appetizer", "양송이수프", 6000),
-    TAPAS("appetizer", "타바스", 5500),
+    TAPAS("appetizer", "타파스", 5500),
     CAESAR_SALAD("appetizer", "시저샐러드", 8000),
 
     T_BONE_STEAK("main", "티본스테이크", 55000),
