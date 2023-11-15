@@ -33,7 +33,7 @@ public class Order {
     public int findDessert(List<Order> orders, HashMap<String, String> typeData) {
         int dessertCount = 0;
         for (Order order : orders) {
-            if (typeData.get(order.menu)=="dessert") {
+            if (typeData.get(order.menu).equals("dessert")) {
                 dessertCount = dessertCount + order.count;
             }
         }
@@ -43,7 +43,7 @@ public class Order {
     public int findMain(List<Order> orders, HashMap<String, String> typeData) {
         int mainCount = 0;
         for (Order order : orders) {
-            if (typeData.get(order.menu)=="main") {
+            if (typeData.get(order.menu).equals("main")) {
                 mainCount = mainCount + order.count;
             }
         }
