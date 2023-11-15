@@ -28,8 +28,16 @@ class EventTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Test
-    void weekday() {
+    @DisplayName("평일할인 이벤트 기능 테스트")
+    @ParameterizedTest
+    @CsvSource(value = {"2,7,4046", "1,8,0"})
+    void weekday_테스트(int value1, int value2, int expected) {
+        int dessertCount = value1;
+        int date = value2;
+
+        int actual = event.weekday(dessertCount, date);
+
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
