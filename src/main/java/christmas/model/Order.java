@@ -49,4 +49,14 @@ public class Order {
         }
         return mainCount;
     }
+
+    public int totalAmount(List<Order> orders, HashMap<String, Integer> priceData) {
+        int totalAmount = 0;
+        for (Order order : orders) {
+            int eachPrice = priceData.get(order.menu);
+            int count = order.count;
+            totalAmount = totalAmount + (eachPrice * count);
+        }
+        return totalAmount;
+    }
 }
