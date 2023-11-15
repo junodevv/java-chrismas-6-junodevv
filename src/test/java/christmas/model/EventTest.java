@@ -73,4 +73,19 @@ class EventTest {
 
         assertThat(actual).isEqualTo(expected);
     }
+
+    @DisplayName("총 혜택내역을 구하는 기능 테스트")
+    @ParameterizedTest
+    @CsvSource(value = {"119000,false", "120000,true"})
+    void totalBenefit_테스트() {
+        int date = 3;
+        int dessertCount = 2;
+        int mainCount = 1;
+        int totalAmount = 120000;
+
+        int actual = event.totalBenefit(date, dessertCount, mainCount, totalAmount);
+        int expected = 1200 + 4046 + 1000 + 25000;
+
+        assertThat(actual).isEqualTo(expected);
+    }
 }
