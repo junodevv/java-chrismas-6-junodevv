@@ -16,6 +16,7 @@ public class OutputView {
     private static final String BENEFIT_DETAILS = "<혜택내역>";
     private static final int CHAMPAGNE_PRICE = 25000;
     private static final String TOTAL_BENEFIT = "<총혜택 금액>";
+    private static final String FINAL_PAYMENT = "<할인 후 예상 결제 금액>";
 
     public void preview(int date) {
         System.out.printf(PREVIEW, date);
@@ -94,4 +95,8 @@ public class OutputView {
         System.out.printf("-%s원\n", decimalFormat.format(totalBenefit));
     }
 
+    public void eventPayment(int eventPayment) {
+        System.out.println(FINAL_PAYMENT);
+        System.out.printf("%s원", decimalFormat.format(eventPayment));
+    }
 }
