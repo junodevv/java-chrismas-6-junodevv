@@ -17,6 +17,7 @@ public class OutputView {
     private static final int CHAMPAGNE_PRICE = 25000;
     private static final String TOTAL_BENEFIT = "<총혜택 금액>";
     private static final String FINAL_PAYMENT = "<할인 후 예상 결제 금액>";
+    private static final String BADGE = "<" + EVENT_MONTH + "월 이벤트 배지>";
 
     public void preview(int date) {
         System.out.printf(PREVIEW, date);
@@ -98,5 +99,10 @@ public class OutputView {
     public void eventPayment(int eventPayment) {
         System.out.println(FINAL_PAYMENT);
         System.out.printf("%s원", decimalFormat.format(eventPayment));
+    }
+
+    public void giveBadge(String badge) {
+        System.out.println(BADGE);
+        System.out.println(badge);
     }
 }
