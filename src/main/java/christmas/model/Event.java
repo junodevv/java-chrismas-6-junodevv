@@ -24,16 +24,25 @@ public class Event {
         return 0;
     }
 
-    public int weekday(int dessertCount) {
-        return dessertCount * WEEK_DISCOUNT;
+    public int weekday(int dessertCount, int date) {
+        if (!(WEEKEND.contains(date))) {
+            return dessertCount * WEEK_DISCOUNT;
+        }
+        return 0;
     }
 
-    public int weekend(int mainCount) {
-        return mainCount * WEEK_DISCOUNT;
+    public int weekend(int mainCount, int date) {
+        if (WEEKEND.contains(date)) {
+            return mainCount * WEEK_DISCOUNT;
+        }
+        return 0;
     }
 
-    public int starDay() {
-        return STAR_DAY_DISCOUNT;
+    public int starDay(int date) {
+        if (STAR_DAY.contains(date)) {
+            return STAR_DAY_DISCOUNT;
+        }
+        return 0;
     }
 
     public boolean present(int totalAmount) {
