@@ -59,4 +59,9 @@ public class Order {
         }
         return totalAmount;
     }
+
+    @Override
+    public String toString() {
+        return menu + " " + count + "개";
+    }
 }
