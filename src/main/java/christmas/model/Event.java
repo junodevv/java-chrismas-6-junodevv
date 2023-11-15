@@ -74,4 +74,8 @@ public class Event {
         }
         return totalBenefit;
     }
+
+    public int finalPayment(int totalAmount, int totalBenefit) {
+        return totalAmount - totalBenefit;
+    }
 }
