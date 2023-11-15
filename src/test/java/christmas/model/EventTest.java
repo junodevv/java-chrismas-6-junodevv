@@ -40,8 +40,16 @@ class EventTest {
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Test
-    void weekend() {
+    @DisplayName("주말할인 이벤트 기능 테스트")
+    @ParameterizedTest
+    @CsvSource(value = {"2,7,0", "1,8,2023"})
+    void weekend(int value1, int value2, int expected) {
+        int mainCount = value1;
+        int date = value2;
+
+        int actual = event.weekend(mainCount, date);
+
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
