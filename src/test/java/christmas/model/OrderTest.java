@@ -37,7 +37,7 @@ class OrderTest {
         Menu menu = new Menu();
 
         List<Order> orders = order.check(menuExample);
-        HashMap<String, String> typeData = menu.makeTypeData();
+        HashMap<String, String> typeData = menu.getTypeData();
         int actual = order.findDessert(orders, typeData);
         int expected = 3;
 
@@ -52,9 +52,24 @@ class OrderTest {
         Menu menu = new Menu();
 
         List<Order> orders = order.check(menuExample);
-        HashMap<String, String> typeData = menu.makeTypeData();
+        HashMap<String, String> typeData = menu.getTypeData();
         int actual = order.findMain(orders, typeData);
         int expected = 2;
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @DisplayName("총 주문 금액을 구하는 기능 테스트")
+    @Test
+    void totalAmount_테스트() {
+        String menuExample = "티본스테이크-1,바비큐립-1,초코케이크-2,아이스크림-1";
+        Order order = new Order();
+        Menu menu = new Menu();
+
+        List<Order> orders = order.check(menuExample);
+        HashMap<String, Integer> priceData = menu.getPriceData();
+        int actual = order.totalAmount(orders, priceData);
+        int expected = 144000;
 
         assertThat(actual).isEqualTo(expected);
     }
