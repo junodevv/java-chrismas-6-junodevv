@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class Event {
     private static final int EVENT_AMOUNT_CONDITION = 10000;
@@ -19,6 +20,8 @@ public class Event {
     );
     private static final int STAR_DAY_DISCOUNT = 1000;
     private static final int PRESENT_CONDITION_AMOUNT = 120000;
+    private static final int CHAMPAGNE_PRICE = 25000;
+    private static final int DEFAULT = 0;
 
     public boolean checkCondition(int totalAmount, boolean checkMenu) {
         if (totalAmount > EVENT_AMOUNT_CONDITION && checkMenu) {
@@ -31,28 +34,28 @@ public class Event {
         if (date <= CHRISTMAS_DAY) {
             return CHRISTMAS_DEFAULT_DISCOUNT + ((date - 1) * CHRISTMAS_ADDITIONAL_DISCOUNT);
         }
-        return 0;
+        return DEFAULT;
     }
 
     public int weekday(int dessertCount, int date) {
         if (!(WEEKEND.contains(date))) {
             return dessertCount * WEEK_DISCOUNT;
         }
-        return 0;
+        return DEFAULT;
     }
 
     public int weekend(int mainCount, int date) {
         if (WEEKEND.contains(date)) {
             return mainCount * WEEK_DISCOUNT;
         }
-        return 0;
+        return DEFAULT;
     }
 
     public int starDay(int date) {
         if (STAR_DAY.contains(date)) {
             return STAR_DAY_DISCOUNT;
         }
-        return 0;
+        return DEFAULT;
     }
 
     public boolean present(int totalAmount) {
@@ -60,5 +63,15 @@ public class Event {
             return true;
         }
         return false;
+    }
+
+    public int totalBenefit(int date, int dessertCount, int mainCount, int totalAmount) {
+        int totalBenefit = DEFAULT;
+        totalBenefit = totalBenefit + christmasDDay(date) + weekday(dessertCount, date) +
+                weekend(mainCount, date) + starDay(date);
+        if (present(totalAmount)) {
+            totalBenefit += CHAMPAGNE_PRICE;
+        }
+        return totalBenefit;
     }
 }
