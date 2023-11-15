@@ -17,7 +17,7 @@ class MenuTest {
         MenuData menuData0 = menuDatas[0];
 
 
-        HashMap<String, Integer> priceData = menu.makePriceData();
+        HashMap<String, Integer> priceData = menu.getPriceData();
         boolean actual = priceData.containsKey(menuData0.getName());
         boolean expected = true;
 
