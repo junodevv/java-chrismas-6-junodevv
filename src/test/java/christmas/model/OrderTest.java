@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class OrderTest {
     @DisplayName("받은 주문을 데이터화 하는 기능 테스트")
@@ -73,4 +75,20 @@ class OrderTest {
 
         assertThat(actual).isEqualTo(expected);
     }
+
+    @DisplayName("총 주문 금액을 구하는 기능 테스트")
+    @ParameterizedTest
+    @CsvSource(value = {"'티본스테이크-1,제로콜라-2',true", "'제로콜라-2,레드와인-1',false"})
+    void checkMenu(String value, boolean expected) {
+        String menuExample = value;
+        Order order = new Order();
+        Menu menu = new Menu();
+        List<Order> orders = order.check(menuExample);
+        HashMap<String, String> typeData = menu.getTypeData();
+
+        boolean actual = order.checkMenu(orders, typeData);
+
+        assertThat(actual).isEqualTo(expected);
+    }
+
 }
