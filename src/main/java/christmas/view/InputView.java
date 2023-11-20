@@ -20,9 +20,7 @@ public class InputView {
     public int readDate() {
         String dateText = readLine();
         int date = Integer.parseInt(dateText);
-        if (date < 1 || date > 31) {
-            throw new IllegalArgumentException(DATE_EXCEPTION_MESSAGE);
-        }
+        validateDate(date);
         return date;
     }
 
@@ -33,5 +31,11 @@ public class InputView {
     public String readMenu() {
         String totalOrder = readLine();
         return totalOrder;
+    }
+
+    private void validateDate(int date) {
+        if (date < 1 || date > 31) {
+            throw new IllegalArgumentException(DATE_EXCEPTION_MESSAGE);
+        }
     }
 }
