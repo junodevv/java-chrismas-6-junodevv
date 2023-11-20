@@ -37,29 +37,6 @@ public class Order {
         return orders;
     }
 
-    private void validateMenuAndCount(String menu, int count) {
-        if (MenuData.valueOf(menu)==null || count==0) {
-            throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
-        }
-    }
-
-    private void validateFormat(String menuAndCount) {
-        String pattern = "^[가-힣]+-\\d+$";
-        Pattern regex = Pattern.compile(pattern);
-        Matcher matcher = regex.matcher(menuAndCount);
-        if (!(matcher.matches())) {
-            throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
-        }
-    }
-
-    private void validateDuplication(Order newOrder, List<Order> orders) {
-        for (Order order : orders) {
-            if (order.menu.equals(newOrder.menu)) {
-                throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
-            }
-        }
-    }
-
     public int findDessert(List<Order> orders, HashMap<String, String> typeData) {
         int dessertCount = 0;
         for (Order order : orders) {
@@ -109,6 +86,29 @@ public class Order {
         }
         if (orderCount > 20) {
             throw new IllegalArgumentException("[ERROR] 메뉴는 한번에 20개 까지만 주문 가능");
+        }
+    }
+
+    private void validateMenuAndCount(String menu, int count) {
+        if (MenuData.valueOf(menu)==null || count==0) {
+            throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+        }
+    }
+
+    private void validateFormat(String menuAndCount) {
+        String pattern = "^[가-힣]+-\\d+$";
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(menuAndCount);
+        if (!(matcher.matches())) {
+            throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+        }
+    }
+
+    private void validateDuplication(Order newOrder, List<Order> orders) {
+        for (Order order : orders) {
+            if (order.menu.equals(newOrder.menu)) {
+                throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+            }
         }
     }
 
