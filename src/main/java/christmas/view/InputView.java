@@ -19,9 +19,13 @@ public class InputView {
 
     public int readDate() {
         String dateText = readLine();
-        int date = Integer.parseInt(dateText);
-        validateDate(date);
-        return date;
+        try {
+            int date = Integer.parseInt(dateText);
+            validateDate(date);
+            return date;
+        } catch (Exception e) {
+            throw new NumberFormatException(DATE_EXCEPTION_MESSAGE);
+        }
     }
 
     public void askMenu() {
