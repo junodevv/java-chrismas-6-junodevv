@@ -24,11 +24,12 @@ public class Controller {
             int date = inputView.readDate();
             inputView.askMenu();
             String totalOrder = inputView.readMenu();
+
             // 주문
             Order order = new Order();
-            List<Order> orders = order.check(totalOrder);
-
             Menu menu = new Menu();
+
+            List<Order> orders = order.check(totalOrder);
             int dessertCount = order.findDessert(orders, menu.getTypeData());
             int mainCount = order.findMain(orders, menu.getTypeData());
             int totalAmount = order.totalAmount(orders, menu.getPriceData());
@@ -39,7 +40,7 @@ public class Controller {
             boolean present = event.present(totalAmount);
             boolean eventCondition = event.checkCondition(totalAmount);
             int totalBenefit = event.totalBenefit(eventCondition, date, dessertCount, mainCount, totalAmount);
-            int eventPayment = event.finalPayment(totalAmount, totalBenefit);
+            int eventPayment = event.finalPayment(totalAmount, totalBenefit, present);
             String badge = event.checkBadge(totalBenefit);
             //출력
             outputView.preview(date);

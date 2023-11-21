@@ -2,9 +2,7 @@ package christmas.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class Event {
     private static final int EVENT_AMOUNT_CONDITION = 10000;
@@ -77,8 +75,12 @@ public class Event {
         return totalBenefit;
     }
 
-    public int finalPayment(int totalAmount, int totalBenefit) {
-        return totalAmount - totalBenefit + CHAMPAGNE_PRICE;
+    public int finalPayment(int totalAmount, int totalBenefit, boolean present) {
+        int eventPayment = totalAmount - totalBenefit;
+        if (present) {
+            eventPayment -= CHAMPAGNE_PRICE;
+        }
+        return eventPayment;
     }
 
     public String checkBadge(int totalBenefit) {
