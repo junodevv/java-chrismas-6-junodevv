@@ -90,7 +90,12 @@ public class Order {
     }
 
     private void validateMenuAndCount(String menu, int count) {
-        if (MenuData.valueOf(menu)==null || count==0) {
+        MenuData[] menuDatas = MenuData.values();
+        List<String> menuNames = new ArrayList<>();
+        for (MenuData menuData : menuDatas) {
+            menuNames.add(menuData.getName());
+        }
+        if (!(menuNames.contains(menu)) || count==0) {
             throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
         }
     }
