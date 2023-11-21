@@ -20,6 +20,9 @@ public class Event {
     private static final int PRESENT_CONDITION_AMOUNT = 120000;
     private static final int CHAMPAGNE_PRICE = 25000;
     private static final int DEFAULT = 0;
+    private static final int SANTA_BADGE = 20000;
+    private static final int TREE_BADGE = 10000;
+    private static final int STAR_BADGE = 5000;
 
     public boolean checkCondition(int totalAmount) {
         if (totalAmount > EVENT_AMOUNT_CONDITION) {
@@ -78,19 +81,19 @@ public class Event {
     public int finalPayment(int totalAmount, int totalBenefit, boolean present) {
         int eventPayment = totalAmount - totalBenefit;
         if (present) {
-            eventPayment -= CHAMPAGNE_PRICE;
+            eventPayment += CHAMPAGNE_PRICE;
         }
         return eventPayment;
     }
 
     public String checkBadge(int totalBenefit) {
-        if (totalBenefit >= 20000) {
+        if (totalBenefit >= SANTA_BADGE) {
             return "산타";
         }
-        if (totalBenefit >= 10000) {
+        if (totalBenefit >= TREE_BADGE) {
             return "트리";
         }
-        if (totalBenefit >= 5000) {
+        if (totalBenefit >= STAR_BADGE) {
             return "별";
         }
         return "없음";

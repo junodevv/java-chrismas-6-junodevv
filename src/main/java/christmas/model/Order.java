@@ -8,7 +8,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Order {
+    private static final int ORDER_COUNT_MAX = 20;
     private static final String ORDER_EXCEPTION_MESSAGE = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    private static final String ONLY_DRINK_EXCEPTION = "[ERROR] 음료만 주문시 주문불가 합니다.";
+    private static final String ORDER_COUNT_MAX_EXCEPTION = "[ERROR] 메뉴는 한번에 20개 까지만 주문 가능합니다.";
     private String menu;
     private int count;
 
@@ -75,7 +78,7 @@ public class Order {
             }
         }
         if (!checkMenu) {
-            throw new IllegalArgumentException("[ERROR] 음료만 주문시 주문불가");
+            throw new IllegalArgumentException(ONLY_DRINK_EXCEPTION);
         }
     }
 
@@ -84,8 +87,8 @@ public class Order {
         for (Order order : orders) {
             orderCount += order.count;
         }
-        if (orderCount > 20) {
-            throw new IllegalArgumentException("[ERROR] 메뉴는 한번에 20개 까지만 주문 가능");
+        if (orderCount > ORDER_COUNT_MAX) {
+            throw new IllegalArgumentException(ORDER_COUNT_MAX_EXCEPTION);
         }
     }
 
