@@ -2,7 +2,6 @@ package christmas.model;
 
 import christmas.util.MenuData;
 import java.util.HashMap;
-import java.util.List;
 
 public class Menu {
     private HashMap<String, Integer> priceData;

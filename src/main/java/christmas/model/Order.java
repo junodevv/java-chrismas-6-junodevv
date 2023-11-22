@@ -1,5 +1,6 @@
 package christmas.model;
 
+import christmas.util.ExceptionMessage;
 import christmas.util.MenuData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,7 +79,7 @@ public class Order {
             }
         }
         if (!checkMenu) {
-            throw new IllegalArgumentException(ONLY_DRINK_EXCEPTION);
+            throw new IllegalArgumentException(ExceptionMessage.ONLY_DRINK.getMessage());
         }
     }
 
@@ -88,7 +89,7 @@ public class Order {
             orderCount += order.count;
         }
         if (orderCount > ORDER_COUNT_MAX) {
-            throw new IllegalArgumentException(ORDER_COUNT_MAX_EXCEPTION);
+            throw new IllegalArgumentException(ExceptionMessage.ORDER_COUNT_MAX.getMessage());
         }
     }
 
@@ -99,7 +100,7 @@ public class Order {
             menuNames.add(menuData.getName());
         }
         if (!(menuNames.contains(menu)) || count==0) {
-            throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.ORDER.getMessage());
         }
     }
 
@@ -108,14 +109,14 @@ public class Order {
         Pattern regex = Pattern.compile(pattern);
         Matcher matcher = regex.matcher(menuAndCount);
         if (!(matcher.matches())) {
-            throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.ORDER.getMessage());
         }
     }
 
     private void validateDuplication(Order newOrder, List<Order> orders) {
         for (Order order : orders) {
             if (order.menu.equals(newOrder.menu)) {
-                throw new IllegalArgumentException(ORDER_EXCEPTION_MESSAGE);
+                throw new IllegalArgumentException(ExceptionMessage.ORDER.getMessage());
             }
         }
     }

@@ -2,6 +2,8 @@ package christmas.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import christmas.util.ExceptionMessage;
+
 public class InputView {
     private static final int EVENT_MONTH = 12;
     private static final int FIRST_DATE = 1;
@@ -9,7 +11,7 @@ public class InputView {
     private static final String GREETING = "안녕하세요! 우테코 식당" + EVENT_MONTH + "월 이벤트 플레너 입니다.";
     private static final String ASK_VISIT_DATE = EVENT_MONTH + "월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)";
     private static final String ASK_MENU = "주문하실 메뉴의 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)";
-    private static final String DATE_EXCEPTION_MESSAGE = "[ERROR]유효하지 않은 날짜입니다. 다시 입력해 주세요.";
+
 
     public void Greeting() {
         System.out.println(GREETING);
@@ -26,7 +28,7 @@ public class InputView {
             validateDate(date);
             return date;
         } catch (Exception e) {
-            throw new NumberFormatException(DATE_EXCEPTION_MESSAGE);
+            throw new NumberFormatException(ExceptionMessage.DATE.getMessage());
         }
     }
 
@@ -41,7 +43,7 @@ public class InputView {
 
     private void validateDate(int date) {
         if (date < FIRST_DATE || date > LAST_DATE) {
-            throw new IllegalArgumentException(DATE_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ExceptionMessage.DATE.getMessage());
         }
     }
 }
