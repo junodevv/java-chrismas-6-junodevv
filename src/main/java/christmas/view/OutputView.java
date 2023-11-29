@@ -27,7 +27,7 @@ public class OutputView {
     public void orderMenu(List<Order> orders) {
         System.out.print(Preview.ORDER_MENU.getMessage());
         for (Order order : orders) {
-            System.out.print("/n" + order.toString());
+            System.out.print("\n" + order.toString());
         }
         lineBlank();
     }
