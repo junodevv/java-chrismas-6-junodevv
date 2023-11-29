@@ -1,13 +1,13 @@
 package christmas.view;
 
 import christmas.model.Order;
+import christmas.util.Preview;
 import java.text.DecimalFormat;
 import java.util.List;
 
 public class OutputView {
     private static final DecimalFormat decimalFormat = new DecimalFormat("#,###");
     private static final int EVENT_MONTH = 12;
-    private static final String PREVIEW = EVENT_MONTH + "월%d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!\n\n";
     private static final String ORDER_MENU = "<주문 메뉴>";
     private static final String BEFORE_DISCOUNT_AMOUNT = "<할인 전 총주문 금액>\n%s원\n\n";
     private static final String PRESENT_MENU = "<증정 메뉴>";
@@ -17,18 +17,19 @@ public class OutputView {
     private static final int CHAMPAGNE_PRICE = 25000;
     private static final String TOTAL_BENEFIT = "<총혜택 금액>";
     private static final String FINAL_PAYMENT = "<할인 후 예상 결제 금액>";
-    private static final String BADGE = "<" + EVENT_MONTH + "월 이벤트 배지>";
+    private static final String BADGE = "<%d월 이벤트 배지>";
 
     public void preview(int date) {
-        System.out.printf(PREVIEW, date);
+        System.out.printf(Preview.START.getMessage(), EVENT_MONTH, date);
+        lineBlank();
     }
 
     public void orderMenu(List<Order> orders) {
-        System.out.println(ORDER_MENU);
+        System.out.print(Preview.ORDER_MENU.getMessage());
         for (Order order : orders) {
-            System.out.println(order.toString());
+            System.out.print("/n" + order.toString());
         }
-        System.out.println();
+        lineBlank();
     }
 
     public void beforeDiscountAmount(int totalAmount) {
@@ -110,7 +111,11 @@ public class OutputView {
     }
 
     public void giveBadge(String badge) {
-        System.out.println(BADGE);
-        System.out.println(badge);
+        System.out.printf(BADGE, EVENT_MONTH);
+        System.out.print(badge);
+    }
+
+    private void lineBlank() {
+        System.out.print("\n\n");
     }
 }
