@@ -61,4 +61,19 @@ class OutputViewTest {
 
         System.setOut(System.out);
     }
+
+    @DisplayName("beforeDiscountAmount 메서드 출력 테스트")
+    @Test
+    void beforeDiscountAmount_테스트() {
+        int totalAmount = 20000;
+
+        outputView.beforeDiscountAmount(20000);
+
+        String expectedOutput = Preview.BEFORE_DISCOUNT_AMOUNT.getMessage() + "\n" + "20,000원\n\n";
+        String actualOutput = outContent.toString();
+
+        assertEquals(actualOutput, expectedOutput);
+
+        System.setOut(System.out);
+    }
 }
