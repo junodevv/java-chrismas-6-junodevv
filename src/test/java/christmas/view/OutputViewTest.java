@@ -76,4 +76,19 @@ class OutputViewTest {
 
         System.setOut(System.out);
     }
+
+    @DisplayName("presentMenu 메서드 출력 테스트")
+    @Test
+    void presentMenu_테스트() {
+        boolean present = true;
+
+        outputView.presentMenu(present);
+
+        String expectedOutput = Preview.PRESENT_MENU.getMessage() + "\n샴페인 1개\n\n";
+        String actualOutput = outContent.toString();
+
+        assertEquals(actualOutput, expectedOutput);
+
+        System.setOut(System.out);
+    }
 }
