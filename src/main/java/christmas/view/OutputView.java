@@ -10,7 +10,6 @@ public class OutputView {
     private static final int EVENT_MONTH = 12;
     private static final String AMOUNT = "%s원";
     private static final String DISCOUNT_AMOUNT = "\n-%s원\n\n";
-    private static final String PRESENT_MENU = "<증정 메뉴>";
     private static final String PRESENT_TRUE = "샴페인 1개";
     private static final String DOES_NOT_EXIST = "없음";
     private static final String BENEFIT_DETAILS = "<혜택내역>";
@@ -40,14 +39,14 @@ public class OutputView {
     }
 
     public void presentMenu(boolean present) {
-        System.out.println(PRESENT_MENU);
+        System.out.println(Preview.PRESENT_MENU.getMessage());
         if (present==true) {
-            System.out.println(PRESENT_TRUE);
+            System.out.print(PRESENT_TRUE);
         }
         if (present==false) {
-            System.out.println(DOES_NOT_EXIST);
+            System.out.print(DOES_NOT_EXIST);
         }
-        System.out.println();
+        lineBlank();
     }
 
     private void christmasDDayToString(int christmasBenefit) {
