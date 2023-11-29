@@ -8,8 +8,8 @@ import java.util.List;
 public class OutputView {
     private static final DecimalFormat decimalFormat = new DecimalFormat("#,###");
     private static final int EVENT_MONTH = 12;
-    private static final String ORDER_MENU = "<주문 메뉴>";
-    private static final String BEFORE_DISCOUNT_AMOUNT = "<할인 전 총주문 금액>\n%s원\n\n";
+    private static final String AMOUNT = "%s원";
+    private static final String DISCOUNT_AMOUNT = "\n-%s원\n\n";
     private static final String PRESENT_MENU = "<증정 메뉴>";
     private static final String PRESENT_TRUE = "샴페인 1개";
     private static final String DOES_NOT_EXIST = "없음";
@@ -34,7 +34,9 @@ public class OutputView {
 
     public void beforeDiscountAmount(int totalAmount) {
         String totalAmountText = decimalFormat.format(totalAmount);
-        System.out.printf(BEFORE_DISCOUNT_AMOUNT, totalAmountText);
+        System.out.println(Preview.BEFORE_DISCOUNT_AMOUNT.getMessage());
+        System.out.printf(AMOUNT, totalAmountText);
+        lineBlank();
     }
 
     public void presentMenu(boolean present) {
