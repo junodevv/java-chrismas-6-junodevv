@@ -7,7 +7,8 @@ public enum Preview {
     PRESENT_MENU("<증정 메뉴>"),
     BENEFIT_DETAILS("<혜택 내역>"),
     TOTAL_BENEFIT("<총혜택 금액>"),
-    FINAL_PAYMENT("<할인 후 예상 결제 금액>");
+    FINAL_PAYMENT("<할인 후 예상 결제 금액>"),
+    BADGE("<%d월 이벤트 배지>");
 
     private String message;
 
