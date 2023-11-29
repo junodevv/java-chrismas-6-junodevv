@@ -13,9 +13,6 @@ public class OutputView {
     private static final String PRESENT_TRUE = "샴페인 1개";
     private static final String DOES_NOT_EXIST = "없음";
     private static final int CHAMPAGNE_PRICE = 25000;
-    private static final String TOTAL_BENEFIT = "<총혜택 금액>";
-    private static final String FINAL_PAYMENT = "<할인 후 예상 결제 금액>";
-    private static final String BADGE = "<%d월 이벤트 배지>";
 
     public void preview(int date) {
         System.out.printf(Preview.START.getMessage(), EVENT_MONTH, date);
@@ -107,12 +104,13 @@ public class OutputView {
     }
 
     public void eventPayment(int eventPayment) {
-        System.out.println(FINAL_PAYMENT);
-        System.out.printf("%s원\n\n", decimalFormat.format(eventPayment));
+        System.out.println(Preview.FINAL_PAYMENT.getMessage());
+        System.out.printf(AMOUNT, decimalFormat.format(eventPayment));
+        lineBlank();
     }
 
     public void giveBadge(String badge) {
-        System.out.printf(BADGE, EVENT_MONTH);
+        System.out.printf(Preview.BADGE.getMessage(), EVENT_MONTH);
         System.out.print(badge);
     }
 
