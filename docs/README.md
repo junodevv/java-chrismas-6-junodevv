@@ -26,7 +26,8 @@
 # 리팩토링 목록
 - [x] 예외처리 추가
 - [x] 하드코딩 제거
-- [ ] String 들 Enum으로 분리하기 -> 특히 OutputView의 String 들
+- [x] 관련 String 들 Enum으로 분리하기 -> 특히 OutputView의 String 들 + 테스트 코드 작성
+- [ ] Event의 관련 int 들 Enum으로 분리하기
 - [ ] 함수 15이하 (특히, Controller길이 줄이기)
 - [ ] 객체의 책임분리?, 객체를 객체스럽게
 - [ ] 예외처리 방법 공부하기
