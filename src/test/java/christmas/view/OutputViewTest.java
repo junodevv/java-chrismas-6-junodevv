@@ -91,4 +91,19 @@ class OutputViewTest {
 
         System.setOut(System.out);
     }
+
+    @DisplayName("totalBenefit 메소드 출력 테스트")
+    @Test
+    void totalBenefit_테스트() {
+        int totalBenefit = 0;
+
+        outputView.totalBenefit(totalBenefit);
+
+        String expectedOutput = Preview.TOTAL_BENEFIT.getMessage() + "\n0원\n\n";
+        String actualOutput = outContent.toString();
+
+        assertEquals(actualOutput, expectedOutput);
+
+        System.setOut(System.out);
+    }
 }
