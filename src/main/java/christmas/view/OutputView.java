@@ -9,10 +9,9 @@ public class OutputView {
     private static final DecimalFormat decimalFormat = new DecimalFormat("#,###");
     private static final int EVENT_MONTH = 12;
     private static final String AMOUNT = "%s원";
-    private static final String DISCOUNT_AMOUNT = "\n-%s원\n\n";
+    private static final String DISCOUNT_AMOUNT = "-%s원";
     private static final String PRESENT_TRUE = "샴페인 1개";
     private static final String DOES_NOT_EXIST = "없음";
-    private static final String BENEFIT_DETAILS = "<혜택내역>";
     private static final int CHAMPAGNE_PRICE = 25000;
     private static final String TOTAL_BENEFIT = "<총혜택 금액>";
     private static final String FINAL_PAYMENT = "<할인 후 예상 결제 금액>";
@@ -82,7 +81,7 @@ public class OutputView {
     public void benefitDetails(
             boolean checkCondition, int christmasBenefit, int weekdayBenefit,
             int weekendBenefit, int starDayBenefit, boolean presentBenefit) {
-        System.out.println(BENEFIT_DETAILS);
+        System.out.println(Preview.BENEFIT_DETAILS.getMessage());
         if (checkCondition) {
             christmasDDayToString(christmasBenefit);
             weekdayToString(weekdayBenefit);
@@ -97,13 +96,14 @@ public class OutputView {
     }
 
     public void totalBenefit(int totalBenefit) {
-        System.out.println(TOTAL_BENEFIT);
+        System.out.println(Preview.TOTAL_BENEFIT.getMessage());
         if (totalBenefit==0) {
-            System.out.printf("%s원\n\n", decimalFormat.format(totalBenefit));
+            System.out.printf(AMOUNT, decimalFormat.format(totalBenefit));
         }
         if (totalBenefit!=0) {
-            System.out.printf("-%s원\n\n", decimalFormat.format(totalBenefit));
+            System.out.printf(DISCOUNT_AMOUNT, decimalFormat.format(totalBenefit));
         }
+        lineBlank();
     }
 
     public void eventPayment(int eventPayment) {
