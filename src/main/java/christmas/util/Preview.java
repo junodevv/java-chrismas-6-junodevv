@@ -5,7 +5,7 @@ public enum Preview {
     ORDER_MENU("<주문 메뉴>"),
     BEFORE_DISCOUNT_AMOUNT("<할인 전 총주문 금액>"),
     PRESENT_MENU("<증정 메뉴>"),
-    BENEFIT_DETAILS("<혜택내역>"),
+    BENEFIT_DETAILS("<혜택 내역>"),
     TOTAL_BENEFIT("<총혜택 금액>"),
     FINAL_PAYMENT("<할인 후 예상 결제 금액>");
 
